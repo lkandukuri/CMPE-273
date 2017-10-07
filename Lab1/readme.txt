@@ -1,1 +1,3 @@
-Implemented a key-value store.
+Implement a key-value store gRPC service using RocksDB.
+
+
