@@ -1,0 +1,38 @@
+
+Lavanyas-MBP:Assignment1 lavanyakandukuri$ ./server.py
+ * Running on http://127.0.0.1:8000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 249-020-941
+127.0.0.1 - - [17/Oct/2017 21:54:42] "POST /api/v1/scripts HTTP/1.1" 201 -
+127.0.0.1 - - [17/Oct/2017 21:55:09] "GET /api/v1/scripts/6cf4ce30947245c1a3420cab80227381 HTTP/1.1" 200 -
+
+
+
+
+
+Lavanyas-MBP:Assignment1 lavanyakandukuri$ curl -i -X POST -H "Content-Type: multipart/form-data" -F "data=@foo.py" http://localhost:8000/api/v1/scripts
+HTTP/1.1 100 Continue
+
+HTTP/1.0 201 CREATED
+Content-Type: application/json
+Content-Length: 53
+Server: Werkzeug/0.12.2 Python/2.7.10
+Date: Wed, 18 Oct 2017 04:54:42 GMT
+
+{
+  "scriptid": "6cf4ce30947245c1a3420cab80227381"
+}
+
+
+
+
+
+Lavanyas-MBP:Assignment1 lavanyakandukuri$ curl -i http://localhost:8000/api/v1/scripts/6cf4ce30947245c1a3420cab80227381
+HTTP/1.0 200 OK
+Content-Type: text/html; charset=utf-8
+Content-Length: 12
+Server: Werkzeug/0.12.2 Python/2.7.10
+Date: Wed, 18 Oct 2017 04:55:09 GMT
+
+Hello World
