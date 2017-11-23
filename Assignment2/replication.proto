@@ -1,0 +1,29 @@
+
+
+syntax = "proto3";
+
+message Request {
+    string key = 1;
+    string data = 2;
+}
+
+message Response {
+    string data = 1;
+}
+
+message ReplicationRequest {
+}
+
+message ReplicationResponse {
+    string operation = 1;
+    string key = 2;
+    string data = 3;
+}
+
+service Replication {
+ 
+   rpc sync(ReplicationRequest) returns (stream ReplicationResponse) {}
+   rpc put(Request) returns (Response) {}
+   rpc delete(Request) returns (Response) {}
+   
+}
